@@ -1,0 +1,12 @@
+# ninja log v5
+1	983	1664730684535948211	ComplexNumber/CMakeFiles/ComplexNumber.dir/ComplexNumber.cpp.o	f29b9ab9768b4788
+984	1032	1664730684583948681	ComplexNumber/libComplexNumber.a	ebcc52e88620d91
+1	1232	1664730684783950642	RationalNumber/CMakeFiles/RationalNumber.dir/RationalNumber.cpp.o	fb7d08f92401573
+1232	1308	1664730684847951268	RationalNumber/libRationalNumber.a	f4aed7b51cb36217
+0	1363	1664730684915951935	CMakeFiles/main.dir/main.cpp.o	c8078734c8672e78
+1	1514	1664730685063953385	LongNumber/CMakeFiles/LongNumber.dir/LongNumber.cpp.o	c42b710bd96dd6f0
+1514	1537	1664730685087953620	LongNumber/libLongNumber.a	d414ff0b2374be1d
+3	836	1664730923186388797	ComplexNumber/CMakeFiles/ComplexNumber.dir/ComplexNumber.cpp.o	f29b9ab9768b4788
+4	3347	1664734895435066778	ComplexNumber/CMakeFiles/ComplexNumber.dir/ComplexNumber.cpp.o	f29b9ab9768b4788
+3348	3552	1664734895647069232	ComplexNumber/libComplexNumber.a	ebcc52e88620d91
+3	4434	1664734896523079374	CMakeFiles/main.dir/main.cpp.o	c8078734c8672e78

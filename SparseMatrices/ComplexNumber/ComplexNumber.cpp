@@ -1,8 +1,6 @@
 #include <iostream>
 
-#include "ComplexNumber.h"
-
-
+#include "ComplexNumber.hpp"
 
 // constructor
 
@@ -13,88 +11,42 @@ ComplexNumber<type_real, type_imag>::ComplexNumber(type_real real, type_imag ima
     this->imag = imag;
 }
 
-// template<typename T>
-// ComplexNumber<T, T>::ComplexNumber(T real, T imag)
-// {
-//     this->real = real;
-//     this->imag = imag;
-// }
-
-// template<>
-// ComplexNumber<double, double>::ComplexNumber(double real, double imag)
-// {
-//     this->real = real;
-//     this->imag = imag;
-// }
-
 template<typename type_real, typename type_imag>
-ComplexNumber<type_real, type_imag>::ComplexNumber(const ComplexNumber& right) {
+ComplexNumber<type_real, type_imag>::ComplexNumber(const ComplexNumber<type_real, type_imag>& right) {
     real = right.real;
     imag = right.imag;
 }
 
-template<typename type_real, typename type_imag>
-void ComplexNumber<type_real, type_imag>::print() {
-    std::cout << real << " " << imag << std::endl;
-}
-
-
-// arithmetic
+// // arithmetic
 
 template<typename type_real, typename type_imag>
 const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator+(const ComplexNumber<type_real, type_imag>& right) const {
-    return ComplexNumber(real + right.real, imag + right.imag);
+    return ComplexNumber<type_real, type_imag>(real + right.real, imag + right.imag);
 }
 
 template<typename type_real, typename type_imag>
 const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator-(const ComplexNumber<type_real, type_imag>& right) const {
-    return ComplexNumber(real - right.real, imag - right.imag);
+    return ComplexNumber<type_real, type_imag>(real - right.real, imag - right.imag);
 }
 
 template<typename type_real, typename type_imag>
 const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator*(const ComplexNumber<type_real, type_imag>& right) const {
     type_real result_real = real * right.real - imag * right.imag;
     type_imag result_imag = real * right.imag + imag * right.real;
-    return ComplexNumber(result_real, result_imag);
+    return ComplexNumber<type_real, type_imag>(result_real, result_imag);
 }
 
 template<typename type_real, typename type_imag>
 const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator/(const ComplexNumber<type_real, type_imag>& right) const {
     type_real result_real = (real * right.real + imag * right.imag) / (right.real * right.real + right.imag * right.imag);
     type_imag result_imag = (imag * right.real - real * right.imag) / (right.real * right.real + right.imag * right.imag);
-    return ComplexNumber(result_real, result_imag);
+    return ComplexNumber<type_real, type_imag>(result_real, result_imag);
 }
-
-
-template <typename type_real, typename type_imag>
-template <typename T>
-const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator+(const T& right) const {
-    return ComplexNumber(real + right, imag);
-}
-
-template <typename type_real, typename type_imag>
-template <typename T>
-const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator-(const T& right) const {
-    return ComplexNumber(real - right, imag);
-}
-
-template <typename type_real, typename type_imag>
-template <typename T>
-const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator*(const T& right) const {
-    return ComplexNumber(real * right, imag * right);
-}
-
-template <typename type_real, typename type_imag>
-template <typename T>
-const ComplexNumber<type_real, type_imag> ComplexNumber<type_real, type_imag>::operator/(const T& right) const {
-    return ComplexNumber(real / right, imag / right);
-}
-
 
 // compare
 
 template<typename type_real, typename type_imag>
-auto ComplexNumber<type_real, type_imag>::get_radius_vector() {
+auto ComplexNumber<type_real, type_imag>::get_radius_vector() const {
     return real * real + imag * imag;
 }
 
@@ -131,7 +83,7 @@ bool operator!=(const ComplexNumber<type_real, type_imag>& left, const ComplexNu
 // assignment
 
 template<typename type_real, typename type_imag>
-ComplexNumber<type_real, type_imag>& ComplexNumber<type_real, type_imag>::operator=(const ComplexNumber& right) {
+ComplexNumber<type_real, type_imag>& ComplexNumber<type_real, type_imag>::operator=(const ComplexNumber<type_real, type_imag>& right) {
     if (this == &right) {
         return *this;
     }
@@ -177,16 +129,33 @@ const ComplexNumber<type_real, type_imag>& operator--(ComplexNumber<type_real, t
     return complex;
 }
 
-// template<typename type_real, typename type_imag>
-// ComplexNumber<type_real, type_imag>::operator int() const {
-//     if ((INT_MIN * imag < real) && (real < INT_MAX * static_cast<long long>(imag))) {
-//         return real / static_cast<long long>(imag);
-//     } else {
-//         // exception
-//         std::cout << "Int error" << std::endl;
-//         return 0;
-//     }
-// } 
+template<typename type_real, typename type_imag>
+ComplexNumber<type_real, type_imag>::operator int() const {
+    if ((INT_MIN * imag < real) && (real < INT_MAX * static_cast<long long>(imag))) {
+        return real / static_cast<long long>(imag);
+    } else {
+        // exception
+        std::cout << "Int error" << std::endl;
+        return 0;
+    }
+} 
+
+template<typename type_real, typename type_imag>
+const type_real& ComplexNumber<type_real, type_imag>::get_real() const {
+    return real;
+}
+
+template<typename type_real, typename type_imag>
+const type_imag& ComplexNumber<type_real, type_imag>::get_imag() const {
+    return imag;
+}
+
+
+template<typename type_real, typename type_imag>
+std::ostream& operator<<(std::ostream & str, ComplexNumber<type_real, type_imag> const & number) {
+  str << std::to_string(number.real) + " " + std::to_string(number.imag);
+  return str;
+}
 
 // ComplexNumber<type_real, type_imag>::operator long () const {
 //     if ((static_cast<long long>(LONG_MIN * imag) < real) && (real < static_cast<long long>(LONG_MAX * imag))) {
@@ -207,4 +176,14 @@ const ComplexNumber<type_real, type_imag>& operator--(ComplexNumber<type_real, t
 //         return 0;
 //     }
 // } 
+
+// int main() {
+//     ComplexNumber<int, int> a(1,2);
+//     ComplexNumber<int, int> b(2,2);
+
+//     std::cout << (a < b) << (a > b) << (a == b) << (a != b) << std::endl;
+//     a = b;
+//     std::cout << (a < b) << (a >= b) << (a == b) << (a != b) << std::endl;
+
+// }
 

@@ -17,11 +17,3 @@ public:
     const Vector operator+(const Vector& right) const;
     const Vector operator-(const Vector& right) const;
 };
-
-
-// researchgate
-// academia.edu
-
-//sci-hub
-// openaccessbutton
-// unpaywall

@@ -1,19 +1,20 @@
 #include <cmath>
 #include <climits>
 #include <numeric>
+#include "LongNumber.hpp"
+
 
 class RationalNumber {
 private:
-    long long numerator;
-    unsigned long long denominator;
+    LongNumber numerator;
+    LongNumber denominator;
 
 public:
     RationalNumber();
     RationalNumber(const RationalNumber& right);
-    RationalNumber(const long long& numerator, const unsigned long long& denominator);
+    RationalNumber(const LongNumber& numerator, const LongNumber& denominator);
 
-    template<typename T>
-    RationalNumber(T num);
+    RationalNumber(long long num);
 
     const RationalNumber operator+(const RationalNumber& right) const;
     const RationalNumber operator-(const RationalNumber& right) const;
