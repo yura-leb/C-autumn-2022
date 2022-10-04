@@ -1,22 +1,11 @@
-#include <exception>
-#include <string>
+#ifndef ZERO_DIVISION_HPP
+#define ZERO_DIVISION_HPP
 
-class ZeroDivision : public std::exception {
+#include "TwoParamsException.hpp"
+
+class ZeroDivision : public TwoParamsException {
 public:
-    std::string message;
-    std::string left;
-    std::string right;
-    ZeroDivision(std::string message, std::string left = std::string(), std::string right = std::string()) { 
-        this->left = left; 
-        this->right = right; 
-        this->message = message;
-    }
-
-    friend std::ostream & operator<<(std::ostream & str, const ZeroDivision & error) {
-        str << error.message;
-        if (error.left != "") {
-            str << " " << error.left << " " << error.right;
-        }
-        return str;
-    }
+    using TwoParamsException::TwoParamsException;
 };
+
+#endif

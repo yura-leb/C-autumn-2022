@@ -8,7 +8,14 @@ project(Exceptions CXX)				# Название проекта
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(SOURCE_LIB OutOfRange.hpp BadCast.hpp ZeroDivision.hpp)		# Установка переменной со списком исходников
+set(SOURCE_LIB 
+			BadCast.hpp 
+			DifferentSizes.hpp
+			OutOfRange.hpp 
+			TwoParamsException.hpp 
+			WrongInput.hpp 
+			ZeroDivision.hpp 
+			)		# Установка переменной со списком исходников
 
 add_library(Exceptions STATIC ${SOURCE_LIB})# Создание статической библиотеки
 

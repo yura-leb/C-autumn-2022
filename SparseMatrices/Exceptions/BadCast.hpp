@@ -1,3 +1,6 @@
+#ifndef BAD_CAST_HPP
+#define BAD_CAST_HPP
+
 #include <exception>
 #include <string>
 
@@ -12,3 +15,5 @@ public:
         return str;
     }
 };
+
+#endif
