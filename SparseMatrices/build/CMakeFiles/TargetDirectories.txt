@@ -10,3 +10,15 @@
 /home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/LongNumber/CMakeFiles/rebuild_cache.dir
 /home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/LongNumber/CMakeFiles/edit_cache.dir
 /home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/LongNumber/CMakeFiles/LongNumber.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix/CMakeFiles/rebuild_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix/CMakeFiles/edit_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix/CMakeFiles/Matrix.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser/CMakeFiles/rebuild_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser/CMakeFiles/edit_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser/CMakeFiles/Parser.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector/CMakeFiles/rebuild_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector/CMakeFiles/edit_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector/CMakeFiles/Vector.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions/CMakeFiles/edit_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions/CMakeFiles/rebuild_cache.dir
+/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions/CMakeFiles/Exceptions.dir

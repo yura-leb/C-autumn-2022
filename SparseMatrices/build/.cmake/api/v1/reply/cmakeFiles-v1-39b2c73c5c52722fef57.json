@@ -139,6 +139,18 @@
 		},
 		{
 			"path" : "LongNumber/CMakeLists.txt"
+		},
+		{
+			"path" : "Matrix/CMakeLists.txt"
+		},
+		{
+			"path" : "Parser/CMakeLists.txt"
+		},
+		{
+			"path" : "Vector/CMakeLists.txt"
+		},
+		{
+			"path" : "Exceptions/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

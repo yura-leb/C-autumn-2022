@@ -743,7 +743,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "4"
+			"value" : "8"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1130,6 +1130,30 @@
 			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/ComplexNumber"
 		},
 		{
+			"name" : "Exceptions_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions"
+		},
+		{
+			"name" : "Exceptions_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Exceptions"
+		},
+		{
 			"name" : "LongNumber_BINARY_DIR",
 			"properties" : 
 			[
@@ -1152,6 +1176,54 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/LongNumber"
+		},
+		{
+			"name" : "Matrix_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix"
+		},
+		{
+			"name" : "Matrix_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Matrix"
+		},
+		{
+			"name" : "Parser_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser"
+		},
+		{
+			"name" : "Parser_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Parser"
 		},
 		{
 			"name" : "RationalNumber_BINARY_DIR",
@@ -1200,6 +1272,30 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices"
+		},
+		{
+			"name" : "Vector_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector"
+		},
+		{
+			"name" : "Vector_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Vector"
 		}
 	],
 	"kind" : "cache",

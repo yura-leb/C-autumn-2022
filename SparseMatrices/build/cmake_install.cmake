@@ -42,6 +42,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/RationalNumber/cmake_install.cmake")
   include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/ComplexNumber/cmake_install.cmake")
   include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/LongNumber/cmake_install.cmake")
+  include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix/cmake_install.cmake")
+  include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser/cmake_install.cmake")
+  include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector/cmake_install.cmake")
+  include("/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions/cmake_install.cmake")
 
 endif()
 

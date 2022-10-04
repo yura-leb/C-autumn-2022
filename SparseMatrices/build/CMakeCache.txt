@@ -212,10 +212,28 @@ ComplexNumber_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMat
 ComplexNumber_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/ComplexNumber
 
 //Value Computed by CMake
+Exceptions_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Exceptions
+
+//Value Computed by CMake
+Exceptions_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Exceptions
+
+//Value Computed by CMake
 LongNumber_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/LongNumber
 
 //Value Computed by CMake
 LongNumber_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/LongNumber
+
+//Value Computed by CMake
+Matrix_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Matrix
+
+//Value Computed by CMake
+Matrix_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Matrix
+
+//Value Computed by CMake
+Parser_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Parser
+
+//Value Computed by CMake
+Parser_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Parser
 
 //Value Computed by CMake
 RationalNumber_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/RationalNumber
@@ -228,6 +246,12 @@ SparseMatrices_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMa
 
 //Value Computed by CMake
 SparseMatrices_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices
+
+//Value Computed by CMake
+Vector_BINARY_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/build/Vector
+
+//Value Computed by CMake
+Vector_SOURCE_DIR:STATIC=/home/yura-leb/Education/C-autumn-2022/SparseMatrices/Vector
 
 
 ########################
@@ -332,7 +356,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
