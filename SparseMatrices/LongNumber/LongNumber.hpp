@@ -1,3 +1,6 @@
+#ifndef LONG_NUMBER_HPP
+#define LONG_NUMBER_HPP
+
 #include <string>
 #include <algorithm>
 
@@ -6,18 +9,19 @@ public:
     LongNumber();
     LongNumber(const LongNumber& right);
     LongNumber(const std::string str);
-    // LongNumber(const char* str);
+    LongNumber(const char* right) : LongNumber(std::string(right)) {}
 
-    LongNumber(const long long right);
+    template<typename T>
+    LongNumber(const T& right) : LongNumber(std::to_string(right)) {}
 
 
-    const LongNumber operator+() const;
-    const LongNumber operator-() const;
-    friend const LongNumber operator+(const LongNumber& left, const LongNumber& right);
-    friend const LongNumber operator-(const LongNumber& left, const LongNumber& right);
-    friend const LongNumber operator*(const LongNumber& left, const LongNumber& right);
-    friend const LongNumber operator/(const LongNumber& left, const LongNumber& right);
-    friend const LongNumber operator%(const LongNumber& left, const LongNumber& right);
+    LongNumber operator+() const;
+    LongNumber operator-() const;
+    friend LongNumber operator+(const LongNumber& left, const LongNumber& right);
+    friend LongNumber operator-(const LongNumber& left, const LongNumber& right);
+    friend LongNumber operator*(const LongNumber& left, const LongNumber& right);
+    friend LongNumber operator/(const LongNumber& left, const LongNumber& right);
+    friend LongNumber operator%(const LongNumber& left, const LongNumber& right);
 
 
     friend bool operator<(const LongNumber& left, const LongNumber& right);
@@ -34,12 +38,14 @@ public:
     friend LongNumber& operator*=(LongNumber& left, const LongNumber& right);
     friend LongNumber& operator/=(LongNumber& left, const LongNumber& right);
 
-    friend const LongNumber& gcd(const LongNumber& a, const LongNumber& b);
-    friend const LongNumber& operator++(LongNumber& rat_num);
-    friend const LongNumber& operator--(LongNumber& rat_num);
+    friend LongNumber gcd(const LongNumber& a, const LongNumber& b);
+    LongNumber& operator++();
+    LongNumber& operator--();
+    LongNumber operator++(int);
+    LongNumber operator--(int);
 
     friend std::ostream & operator<<(std::ostream & str, LongNumber const & long_number);
-    operator bool () const;
+    explicit operator bool () const;
 
     std::string to_string() const;
     std::string get_number() const;
@@ -58,3 +64,5 @@ private:
     const double eps = 0.0000001;
     const int digits_after_comma = 7;
 };
+
+#endif

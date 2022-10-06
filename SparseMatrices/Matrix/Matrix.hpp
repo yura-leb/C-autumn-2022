@@ -1,3 +1,6 @@
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
+
 #include "WrongInput.hpp"
 #include "OutOfRange.hpp"
 #include "DifferentSizes.hpp"
@@ -33,23 +36,25 @@ private:
 public:
 
     Matrix() {
-        matrix_ = std::unordered_map<std::pair<uint64_t, uint64_t>, T, pair_hash>();
         hight = 0;
         width = 0;
     }
 
     Matrix(uint64_t hight, uint64_t width) {
-        matrix_ = std::unordered_map<std::pair<uint64_t, uint64_t>, T, pair_hash>();
         this->hight = hight;
         this->width = width;
+        for (size_t i=0; i < hight; ++i) {
+            matrix_[{i, i}] = T(1);
+        }
     }
 
-    Matrix(const int64_t value, uint64_t hight, uint64_t width) {
-        matrix_ = std::unordered_map<std::pair<uint64_t, uint64_t>, T, pair_hash>();
-        if (value) {
-            for (size_t i; i < hight; ++i) {
-                for (size_t j; j < width; j++)
-                    matrix_[{i, j}] = value;
+    Matrix(const int64_t value, const uint64_t hight, const uint64_t width) {
+        if (bool(value)) {
+            for (size_t i = 0; i < hight; ++i) {
+                for (size_t j = 0; j < width; j++) {
+                    std::cout << i << j << std::endl;
+                    matrix_[{i, j}] = T(value);
+                }
             }
         }
         this->hight = hight;
@@ -94,14 +99,14 @@ public:
                     } else if (word[0] == '#') {
                         break;
                     } else {
-                        coord.first = std::stoi(word);
+                        coord.first = std::stoi(word) - 1;
                         iss >> word;
-                        coord.second = std::stoi(word);
+                        coord.second = std::stoi(word) - 1;
                         while (!iss.eof()) {
                             iss >> word;
                             comment = false;
                             for (auto letter : word) {
-                                if ('0' <= letter && letter <= '9' || letter == '.') {
+                                if ('0' <= letter && letter <= '9' || letter == '.' || letter == '-') {
                                     second += letter;
                                 } else if (letter == '/' || letter == ',') {
                                     first = second;
@@ -133,9 +138,6 @@ public:
                                     matrix_[coord] = T(std::stoi(first), std::stoi(second));
                             }
                             break;
-                        case 'b':
-                            matrix_[coord] = bool(std::stoi(second));
-
                         }
                         break;
                     }
@@ -183,7 +185,7 @@ public:
 
     Matrix operator*(const Matrix& right) const {
         if (width != right.hight) {
-            throw DifferentSizes("Different hights when multiply matrices:", width, right.hight);
+            throw DifferentSizes("Different hights when multiply matrices:", std::to_string(width), std::to_string(right.hight));
         }
 
         Matrix res;
@@ -197,17 +199,17 @@ public:
             non_zero_lines.insert(kv.first.first);
         }
         for (auto kv : matrix_) {
-            non_zero_lines.insert(kv.first.second);
+            non_zero_columns.insert(kv.first.second);
         }
         
         for (auto i : non_zero_lines) {
             for (auto j : non_zero_columns) {
-                res[{i, j}] = T(0);
-                for (size_t k; k < width; ++k) {
-                    res.matrix_[{i, j}] += matrix_[{i, k}] * right.matrix_[{k, j}];
-                    if (res.matrix_[{i, j}].is_zero())
-                        res.matrix_.erase({i, j});
+                res.matrix_[{i, j}] = T(0);
+                for (size_t k=0; k < width; ++k) {
+                    res.matrix_[{i, j}] += (*this)(i, k) * right(k, j);
                 }
+                if (res(i, j).is_zero(eps))
+                    res.matrix_.erase({i, j});
             }
         }
         
@@ -230,8 +232,11 @@ public:
     
     std::string to_string() const {
         std::string res = "";
-        for (auto elem : matrix_) {
-            res += elem.second.to_string() + " ";
+        for (size_t i=0; i < hight; ++i) {
+            for (size_t j=0; j < width; ++j) {
+                res += (*this)(i, j).to_string() + " ";
+            }
+            res += "\n";
 
         }
         return res;
@@ -241,4 +246,19 @@ public:
         str << number.to_string();
         return str;
     }
+
+    T operator() (const uint64_t i, const uint64_t j) const {
+        try {
+            if (i >= hight)
+                throw OutOfRange("Matrix higth out of range");
+            if (j >= width)
+                throw OutOfRange("Matrix width out of range");
+            return matrix_.at({i, j});
+        } catch (std::out_of_range) {
+            return T(0);
+        } 
+        return T(0);
+    }
 };
+
+#endif

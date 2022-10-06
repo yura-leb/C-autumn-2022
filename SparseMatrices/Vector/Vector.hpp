@@ -1,7 +1,9 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-// #include "Exceptions"
+#include "WrongInput.hpp"
+#include "OutOfRange.hpp"
+#include "DifferentSizes.hpp"
 #include <map>
 #include <string>
 #include <iostream>
@@ -13,13 +15,12 @@ template <typename T>
 class Vector {
 private:
     std::map<uint64_t, T> dictionary;
-    double eps;
+    inline static double eps = 0.0000000001;
     uint64_t len;
 public:
 
     Vector() {
         dictionary = std::map<uint64_t, T>();
-        eps = 0.000000001;
         len = 0;
     }
 
@@ -30,25 +31,21 @@ public:
                 dictionary[i] = value;
             }
         }
-        eps = 0.000000001;
         this->len = len;
     }
 
     Vector(const Vector& vec) {
         dictionary = vec.dictionary;
-        eps = vec.eps;
         len = vec.len;
     }
 
-    Vector(const std::map<uint64_t, T>& dictionary, double eps, uint64_t len) {
+    Vector(const std::map<uint64_t, T>& dictionary, uint64_t len) {
         this->dictionary = dictionary;
-        this->eps = eps;
         this->len = len;
     }
 
     Vector(std::string fname) {
         dictionary = std::map<uint64_t, T>();
-        eps = 0.000000001;
         std::string line, word, first = "", second = "", type = "";
         uint64_t coord;
         bool is_complex = false;
@@ -71,10 +68,14 @@ public:
                     } else if (word[0] == '#') {
                         break;
                     } else {
-                        coord = std::stoi(word);
+                        try {
+                            coord = std::stoi(word) - 1;
+                        } catch (std::invalid_argument) {
+                            throw WrongInput("Wrong vector coordinate input");
+                        }
                         iss >> word;
                         for (auto letter : word) {
-                            if ('0' <= letter && letter <= '9' || letter == '.') {
+                            if ('0' <= letter && letter <= '9' || letter == '.' || letter == '-') {
                                 second += letter;
                             } else if (letter == '/' || letter == ',') {
                                 first = second;
@@ -104,9 +105,6 @@ public:
                                     dictionary[coord] = T(std::stoi(first), std::stoi(second));
                             }
                             break;
-                        case 'b':
-                            dictionary[coord] = bool(std::stoi(second));
-
                         }
                         break;
                     }
@@ -127,31 +125,35 @@ public:
     T operator()(uint64_t i) {
         try {
             if (i >= len)
-                throw "std::out_of_range";
+                throw OutOfRange("Out of range. Coordinate is more than", std::to_string(len));
             else
                 return dictionary.at(i);
-        } catch(const char *) {
-            return T(0);
         } catch(std::out_of_range e) {
-            std::cout << "ERROR" << std::endl;
-        } catch (std::exception) {
-
+            return T(0);
         }
         return T(0);
     }
 
-    const Vector& operator+(const Vector& right) const {
+    Vector operator+(const Vector& right) const {
+        if (len != right.len)
+            throw DifferentSizes("Different sizes when add vectors:", std::to_string(len), std::to_string(right.len));
         Vector res = *this;
         for (auto const& elem : right.dictionary) {
-            res[elem.first] += elem.second;
+            res.dictionary[elem.first] += elem.second;
+            if (res.dictionary[elem.first].is_zero(eps))
+                res.dictionary.erase(elem.first);
         }
         return res;
     }
 
-    const Vector& operator-(const Vector& right) const {
+    Vector operator-(const Vector& right) const {
+        if (len != right.len)
+            throw DifferentSizes("Different sizes when substract vectors:", std::to_string(len), std::to_string(right.len));
         Vector res = *this;
         for (auto const& elem : right.dictionary) {
             res[elem.first] -= elem.second;
+            if (res.dictionary[elem.first].is_zero(eps))
+                res.dictionary.erase(elem.first);
         }
         return res;
     }
@@ -161,6 +163,8 @@ public:
         Vector res = left;
         for (auto const & elem : left.dictionary) {
             res.dictionary[elem.first] = elem.second * right;
+            if (res.dictionary[elem.first].is_zero(eps))
+                res.dictionary.erase(elem.first);
         }
         return res;
     }
@@ -175,6 +179,8 @@ public:
         Vector res = left;
         for (auto const & elem : left.dictionary) {
             res.dictionary[elem.first] = elem.second / right;
+            if (res.dictionary[elem.first].is_zero(eps))
+                res.dictionary.erase(elem.first);
         }
         return res;
     }
@@ -183,7 +189,6 @@ public:
         std::string res = "";
         for (auto elem : dictionary) {
             res += elem.second.to_string() + " ";
-
         }
         return res;
     }

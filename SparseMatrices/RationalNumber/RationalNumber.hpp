@@ -1,3 +1,6 @@
+#ifndef RATIONAL_NUMBER_HPP
+#define RATIONAL_NUMBER_HPP
+
 #include <cmath>
 #include <climits>
 #include <numeric>
@@ -13,13 +16,15 @@ public:
     RationalNumber();
     RationalNumber(const RationalNumber& right);
     RationalNumber(const LongNumber& numerator, const LongNumber& denominator);
+    RationalNumber(std::string right);
+    RationalNumber(int64_t num);
 
-    RationalNumber(long long num);
+    RationalNumber operator+(const RationalNumber& right) const;
+    RationalNumber operator-(const RationalNumber& right) const;
+    RationalNumber operator*(const RationalNumber& right) const;
+    RationalNumber operator/(const RationalNumber& right) const;
 
-    const RationalNumber operator+(const RationalNumber& right) const;
-    const RationalNumber operator-(const RationalNumber& right) const;
-    const RationalNumber operator*(const RationalNumber& right) const;
-    const RationalNumber operator/(const RationalNumber& right) const;
+    RationalNumber operator-() const;
 
     friend bool operator<(const RationalNumber& left, const RationalNumber& right);
     friend bool operator<=(const RationalNumber& left, const RationalNumber& right);
@@ -47,4 +52,10 @@ public:
 
 
     void print();
+    std::string to_string() const;
+    bool is_zero(double eps) const;
+    friend std::ostream & operator<<(std::ostream & str, RationalNumber const & number);
+
 };
+
+#endif

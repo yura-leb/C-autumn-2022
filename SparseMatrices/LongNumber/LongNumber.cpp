@@ -23,9 +23,6 @@ LongNumber::LongNumber(const std::string str) {
     }
 }
 
-// LongNumber::LongNumber(const char* str) : LongNumber::LongNumber(std::string(str)) {}
-
-LongNumber::LongNumber(const long long right) : LongNumber::LongNumber(std::to_string(right)) {}
 
 std::string LongNumber::to_string() const {
     std::string tmp = number;
@@ -48,11 +45,11 @@ std::string LongNumber::get_number() const {
     return tmp;
 }
 
-const LongNumber LongNumber::operator+() const {
+LongNumber LongNumber::operator+() const {
     return LongNumber(*this);
 }
  
-const LongNumber LongNumber::operator-() const {
+LongNumber LongNumber::operator-() const {
     LongNumber copy(*this);
     copy.is_negative = !copy.is_negative;
     return copy;
@@ -101,7 +98,7 @@ bool operator!=(const LongNumber& left, const LongNumber& right) {
 }
 
 
-const LongNumber operator+(const LongNumber& left, const LongNumber& right) {
+LongNumber operator+(const LongNumber& left, const LongNumber& right) {
     LongNumber res;
     int digit;
     if (left.is_negative) {
@@ -126,7 +123,7 @@ const LongNumber operator+(const LongNumber& left, const LongNumber& right) {
     return res;
 }
 
-const LongNumber operator-(const LongNumber& left, const LongNumber& right) {
+LongNumber operator-(const LongNumber& left, const LongNumber& right) {
     LongNumber res;
     int digit;
 
@@ -155,7 +152,7 @@ const LongNumber operator-(const LongNumber& left, const LongNumber& right) {
     return res;
 }
 
-const LongNumber operator*(const LongNumber& left, const LongNumber& right) {
+LongNumber operator*(const LongNumber& left, const LongNumber& right) {
     LongNumber res(0);
     LongNumber cur;
 
@@ -177,11 +174,11 @@ const LongNumber operator*(const LongNumber& left, const LongNumber& right) {
 
     }
 
-    res.is_negative = left.is_negative | right.is_negative;
+    res.is_negative = left.is_negative ^ right.is_negative;
     return res;
 }
 
-const LongNumber operator/(const LongNumber& left, const LongNumber& right) {
+LongNumber operator/(const LongNumber& left, const LongNumber& right) {
     LongNumber res(0);
     if (right.number == "0") {
         return 0;
@@ -218,7 +215,7 @@ const LongNumber operator/(const LongNumber& left, const LongNumber& right) {
     return res;
 }
 
-const LongNumber operator%(const LongNumber& left, const LongNumber& right) {
+LongNumber operator%(const LongNumber& left, const LongNumber& right) {
     LongNumber res(0);
     if (right.number == "0") {
         return 0;
@@ -255,10 +252,11 @@ const LongNumber operator%(const LongNumber& left, const LongNumber& right) {
 }
 
 void LongNumber::remove_leading_zeros() {
-    while (*this) {
+    while (*this && number[number.size() - 1] == '0') {
         number.pop_back();
     }
-    if (number.size() == 1 && number[0] == '0') is_negative = false;
+    if (number.size() == 1 && number[0] == '0') 
+        is_negative = false;
 }
 
 LongNumber& LongNumber::operator=(const LongNumber& right) {
@@ -293,15 +291,39 @@ const LongNumber abs(const LongNumber& long_number) {
 
 
 LongNumber::operator bool () const{ 
-    return number.size() > 1 && number[number.size()-1] == '0';
+    return number.size() != 1 || number[0] != '0';
 }
 
 bool LongNumber::_is_negative() const {
     return is_negative;
 }
 
-const LongNumber& gcd(const LongNumber& a, const LongNumber& b) {
-    if (!b)
+LongNumber gcd(const LongNumber& a, const LongNumber& b) {
+    if (b > a) 
+        return gcd(b, a);
+    if (!bool(b)) {        
         return a;
+    }
     return gcd(b, a % b);
+}
+
+LongNumber& LongNumber::operator++() {
+   *this += 1;
+    return *this;
+}
+
+LongNumber& LongNumber::operator--() {
+    *this -= 1;
+    return *this;
+}
+
+LongNumber LongNumber::operator++(int) {
+    LongNumber tmp(*this);
+    operator++();
+    return tmp;
+}
+LongNumber LongNumber::operator--(int) {
+    LongNumber tmp(*this);
+    operator--();
+    return tmp;
 }

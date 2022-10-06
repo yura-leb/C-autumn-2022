@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0) # Проверка версии CMake.
+cmake_minimum_required(VERSION 3.16) # Проверка версии CMake.
 									# Если версия установленой программы
 									# старее указаной, произайдёт аварийный выход.
 
@@ -10,3 +10,4 @@ project(RationalNumber)				# Название проекта
 set(SOURCE_LIB RationalNumber.cpp RationalNumber.hpp)		# Установка переменной со списком исходников
 
 add_library(RationalNumber STATIC ${SOURCE_LIB})# Создание статической библиотеки
+

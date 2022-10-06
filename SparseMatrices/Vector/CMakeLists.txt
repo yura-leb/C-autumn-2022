@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 project(Vector)				# Название проекта
 
-set(SOURCE_LIB Vector.cpp)		# Установка переменной со списком исходников
+set(SOURCE_LIB Vector.hpp)		# Установка переменной со списком исходников
 
 add_library(Vector STATIC ${SOURCE_LIB})# Создание статической библиотеки
+
+set_target_properties(Vector PROPERTIES LINKER_LANGUAGE CXX)

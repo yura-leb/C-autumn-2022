@@ -1,3 +1,6 @@
+#ifndef PARSER_HPP
+#define PARSER_HPP
+
 // #include "Matrix.hpp"
 #include "Vector.hpp"
 #include <string>
@@ -20,3 +23,5 @@ public:
     auto parse();
 
 };
+
+#endif
