@@ -13,9 +13,10 @@ RationalNumber::RationalNumber(const RationalNumber& right) {
     denominator = right.denominator;
 }
 
-RationalNumber::RationalNumber(const LongNumber& numerator, const LongNumber& denominator) {
+RationalNumber::RationalNumber(const LongNumber& numerator, const LongNumber& denominator=LongNumber(1)) {
     this->numerator = numerator;
     this->denominator = denominator;
+    make_canonical();
 }
 
 RationalNumber::RationalNumber(std::string right) {
@@ -27,6 +28,7 @@ RationalNumber::RationalNumber(std::string right) {
         numerator = LongNumber(right);
         denominator = LongNumber(1);
     }
+    make_canonical();
 }
 
 RationalNumber::RationalNumber(int64_t num) {
@@ -130,14 +132,29 @@ RationalNumber& operator/=(RationalNumber& left, const RationalNumber& right) {
     return left;
 }
 
-const RationalNumber& operator++(RationalNumber& rat_num) {
-    rat_num.numerator += rat_num.denominator;
-    return rat_num;
+RationalNumber& RationalNumber::operator++() {
+    *this += 1;
+    make_canonical();
+    return *this;
 }
 
-const RationalNumber& operator--(RationalNumber& rat_num) {
-    rat_num.numerator -= rat_num.denominator;
-    return rat_num;
+RationalNumber& RationalNumber::operator--() {
+    *this -= 1;
+    make_canonical();
+    return *this;
+}
+
+RationalNumber RationalNumber::operator++(int) {
+    RationalNumber tmp(*this);
+    std::cout << *this << tmp << std::endl;
+    operator++();
+    std::cout << *this << tmp << std::endl;
+    return tmp;
+}
+RationalNumber RationalNumber::operator--(int) {
+    RationalNumber tmp(*this);
+    operator--();
+    return tmp;
 }
 
 const LongNumber least_common_quotient(const LongNumber& a, const LongNumber& b) {
@@ -150,6 +167,8 @@ RationalNumber RationalNumber::make_canonical() {
         numerator /= greatest_common_divider;
         denominator /= greatest_common_divider;
     }
+    numerator.remove_leading_zeros();
+    // denominator.remove_leading_zeros();
     return *this;
 }
 
@@ -173,54 +192,35 @@ bool RationalNumber::is_zero(double eps) const {
 }
 
 
-// RationalNumber::operator int () const {
-//     // std::cout << (INT_MIN) << " " << (numerator / denominator) << " " << numerator << " " << INT_MAX * denominator << std::endl;
-//     if ((INT_MIN * denominator < numerator) && (numerator < INT_MAX * denominator)) {
-//         return numerator / (denominator);
-//     } else {
-//         // exception
-//         std::cout << "Int error" << std::endl;
-//         return 0;
-//     }
-// } 
+RationalNumber::operator int () const {
+    return int(numerator / denominator);
+} 
 
-// RationalNumber::operator long () const {
-//     if (((LONG_MIN * denominator) < numerator) && (numerator < (LONG_MAX * denominator))) {
-//         return numerator / denominator);
-//     } else {
-//         // exception
-//         std::cout << "Long error" << std::endl;
-//         return 0;
-//     }
-// } 
+RationalNumber::operator long () const {
+    return long(numerator / denominator);
+} 
 
-// RationalNumber::operator short () const {
-//     if (((denominator * SHRT_MIN) < numerator) && (numerator < (SHRT_MAX * denominator))) {
-//         return numerator / denominator;
-//     } else {
-//         // exception
-//         std::cout << "Short error" << std::endl;
-//         return 0;
-//     }
-// } 
+RationalNumber::operator short () const {
+    return short(numerator / denominator);
+} 
 
-// RationalNumber RationalNumber::round() {
-//     RationalNumber tmp = numerator < 0 ? RationalNumber(-1, 2) + *this : RationalNumber(1, 2) + *this;
+RationalNumber round(const RationalNumber& number) {
+    RationalNumber tmp = number.numerator < 0 ? RationalNumber(-1, 2) + number : RationalNumber(1, 2) + number;
 
-//     return RationalNumber(tmp.numerator / (tmp.denominator));
-// }
+    return RationalNumber(tmp.numerator / tmp.denominator);
+}
 
-// RationalNumber RationalNumber::floor() {
+RationalNumber floor(const RationalNumber& number) {
 
-//     LongNumber divisor = numerator / denominator;
-//     LongNumber remainder = numerator % denominator;
+    LongNumber divisor = number.numerator / number.denominator;
+    LongNumber remainder = number.numerator % number.denominator;
 
-//     if (numerator._is_negative() && remainder)
-//         return RationalNumber(divisor - 1);
-//     else
-//         return RationalNumber(divisor);
+    if (number.numerator._is_negative() && remainder)
+        return RationalNumber(divisor - 1);
+    else
+        return RationalNumber(divisor);
 
-// }
+}
 
 
 

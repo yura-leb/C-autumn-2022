@@ -1,0 +1,8 @@
+#
+# This f i l e d e s c r i b e s
+# sparse matrix
+#
+matrix complex 5 5
+1 1 (100 ,0.201) 
+4 1 ( 2 , 0.0 ) # spaces
+5 2 ( 34 , 1 . 1 )

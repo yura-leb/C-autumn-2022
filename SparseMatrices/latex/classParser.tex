@@ -1,0 +1,42 @@
+\hypertarget{classParser}{}\doxysection{Parser Class Reference}
+\label{classParser}\index{Parser@{Parser}}
+
+
+{\ttfamily \#include $<$Parser.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classParser_ac4f998219186914510e9119a0663c6d6}{analyze\+\_\+file}} (std\+::string fname)
+\item 
+\mbox{\Hypertarget{classParser_a3d6d1686c7970362f75eaf1885d6ed9a}\label{classParser_a3d6d1686c7970362f75eaf1885d6ed9a}} 
+auto {\bfseries parse} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class parser for parsing files. Creates \mbox{\hyperlink{classVector}{Vector}} and \mbox{\hyperlink{classMatrix}{Matrix}} with complex or rational elements. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classParser_ac4f998219186914510e9119a0663c6d6}\label{classParser_ac4f998219186914510e9119a0663c6d6}} 
+\index{Parser@{Parser}!analyze\_file@{analyze\_file}}
+\index{analyze\_file@{analyze\_file}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{analyze\_file()}{analyze\_file()}}
+{\footnotesize\ttfamily const int Parser\+::analyze\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+Get type of object in file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & \+: filename with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{int\} \+: returns 2-\/digit number. First number 1\+: vector, 2\+:matrix. Second number\+: 2\+:rational, 3\+: complex. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Parser/Parser.\+hpp\item 
+Parser/Parser.\+cpp\end{DoxyCompactItemize}

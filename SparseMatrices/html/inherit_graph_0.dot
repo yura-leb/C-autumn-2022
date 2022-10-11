@@ -1,0 +1,20 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node7 [label="exception",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node7 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="BadCast",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBadCast.html",tooltip=" "];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="OutOfRange",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOutOfRange.html",tooltip=" "];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="TwoParamsException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTwoParamsException.html",tooltip=" "];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="DifferentSizes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDifferentSizes.html",tooltip=" "];
+  Node10 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="ZeroDivision",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classZeroDivision.html",tooltip=" "];
+  Node7 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="WrongInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWrongInput.html",tooltip=" "];
+}

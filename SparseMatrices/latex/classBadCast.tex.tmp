@@ -1,0 +1,27 @@
+\hypertarget{classBadCast}{}\doxysection{Bad\+Cast Class Reference}
+\label{classBadCast}\index{BadCast@{BadCast}}
+
+
+Inheritance diagram for Bad\+Cast\+:
+% FIG 0
+
+
+Collaboration diagram for Bad\+Cast\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBadCast_a4f861b3b5d7b2f933337b1095cd9b8c7}\label{classBadCast_a4f861b3b5d7b2f933337b1095cd9b8c7}} 
+{\bfseries Bad\+Cast} (std\+::string msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBadCast_acce0a16c9c328754cce89a2b5265df55}\label{classBadCast_acce0a16c9c328754cce89a2b5265df55}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&str, const \mbox{\hyperlink{classBadCast}{Bad\+Cast}} \&error)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Exceptions/Bad\+Cast.\+hpp\end{DoxyCompactItemize}

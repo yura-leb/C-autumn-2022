@@ -1,0 +1,9 @@
+#
+# This f i l e d e s c r i b e s
+# sparse vector
+#
+vector rational 5
+1 <100>
+3 <23 / 5>
+2 < −5/3 >
+4 < 44 /1 >

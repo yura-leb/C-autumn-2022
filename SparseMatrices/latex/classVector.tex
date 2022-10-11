@@ -1,0 +1,273 @@
+\hypertarget{classVector}{}\doxysection{Vector$<$ T $>$ Class Template Reference}
+\label{classVector}\index{Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector_a39d6069675db4ecfc1ab81d440da759a}{Vector}} ()
+\item 
+\mbox{\hyperlink{classVector_a55202d0a427060435466470b46dbbf10}{Vector}} (const int64\+\_\+t value, uint64\+\_\+t len)
+\item 
+\mbox{\hyperlink{classVector_aa9a7048e2f6f2828097c3c2eaa6ed9dd}{Vector}} (const \mbox{\hyperlink{classVector}{Vector}} \&vec)
+\item 
+\mbox{\hyperlink{classVector_a6d15385de3412325ec40421287264a6a}{Vector}} (const std\+::map$<$ uint64\+\_\+t, T $>$ \&dictionary, uint64\+\_\+t len)
+\item 
+\mbox{\hyperlink{classVector_a4fee2faca4a23fadfbe317812dd8b48b}{Vector}} (std\+::string fname)
+\item 
+void \mbox{\hyperlink{classVector_a79fcb92007f51cefad5486adc1636b0a}{set\+\_\+len}} (uint64\+\_\+t len)
+\item 
+T \mbox{\hyperlink{classVector_a0cf2f0d9609fd39ec4e4cb273d668996}{operator()}} (uint64\+\_\+t i)
+\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_aeba3c613baaab117314975eb3c96ff4e}{operator+}} (const \mbox{\hyperlink{classVector}{Vector}} \&right) const
+\item 
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a0427c4e9e035e6b20bcf8e23cbeeb4ee}{operator-\/}} (const \mbox{\hyperlink{classVector}{Vector}} \&right) const
+\item 
+std\+::string \mbox{\hyperlink{classVector_ad35ce139347286ee3c789602fa5d59e9}{to\+\_\+string}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename N\+UM $>$ }\\const friend \mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a1b0f19a654506010ec8560d628dfb39b}{operator$\ast$}} (const \mbox{\hyperlink{classVector}{Vector}} \&left, const N\+UM \&right)
+\item 
+{\footnotesize template$<$typename N\+UM $>$ }\\const friend \mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_a5f2ce6661fe041034adb1bcfba028cf8}{operator$\ast$}} (const N\+UM \&left, const \mbox{\hyperlink{classVector}{Vector}} \&right)
+\item 
+{\footnotesize template$<$typename N\+UM $>$ }\\const friend \mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector_ab377d44c4f0215536bee78c1075faab4}{operator/}} (const \mbox{\hyperlink{classVector}{Vector}} \&left, const N\+UM \&right)
+\item 
+std\+::ostream \& \mbox{\hyperlink{classVector_a68768d0de81fdb8e501d03c797b284ca}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&vec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVector_a39d6069675db4ecfc1ab81d440da759a}\label{classVector_a39d6069675db4ecfc1ab81d440da759a}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{classVector}{Vector}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. \mbox{\Hypertarget{classVector_a55202d0a427060435466470b46dbbf10}\label{classVector_a55202d0a427060435466470b46dbbf10}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{classVector}{Vector}} (\begin{DoxyParamCaption}\item[{const int64\+\_\+t}]{value,  }\item[{uint64\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from value and length. Initializes vector with every element = value and length = len.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \+: value of every element. \\
+\hline
+{\em len} & \+: length of vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVector_aa9a7048e2f6f2828097c3c2eaa6ed9dd}\label{classVector_aa9a7048e2f6f2828097c3c2eaa6ed9dd}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{classVector}{Vector}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & \+: other vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVector_a6d15385de3412325ec40421287264a6a}\label{classVector_a6d15385de3412325ec40421287264a6a}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{classVector}{Vector}} (\begin{DoxyParamCaption}\item[{const std\+::map$<$ uint64\+\_\+t, T $>$ \&}]{dictionary,  }\item[{uint64\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dictionary} & \+: map with coordinates and values. \\
+\hline
+{\em len} & \+: vector length. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVector_a4fee2faca4a23fadfbe317812dd8b48b}\label{classVector_a4fee2faca4a23fadfbe317812dd8b48b}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{classVector}{Vector}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & \+: filename to construct from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVector_a0cf2f0d9609fd39ec4e4cb273d668996}\label{classVector_a0cf2f0d9609fd39ec4e4cb273d668996}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get value to read.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \+: coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{T\} \+: element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_aeba3c613baaab117314975eb3c96ff4e}\label{classVector_aeba3c613baaab117314975eb3c96ff4e}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: other vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classVector}{Vector}}\} \+: result of operation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_a0427c4e9e035e6b20bcf8e23cbeeb4ee}\label{classVector_a0427c4e9e035e6b20bcf8e23cbeeb4ee}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classVector}{Vector}} \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Substract.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: other vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classVector}{Vector}}\} \+: result of operation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_a79fcb92007f51cefad5486adc1636b0a}\label{classVector_a79fcb92007f51cefad5486adc1636b0a}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!set\_len@{set\_len}}
+\index{set\_len@{set\_len}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_len()}{set\_len()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::set\+\_\+len (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Length setter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em len} & \+: vector length. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVector_ad35ce139347286ee3c789602fa5d59e9}\label{classVector_ad35ce139347286ee3c789602fa5d59e9}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Convert vector to string.
+
+\begin{DoxyReturn}{Returns}
+\{std\+::string\} \+: vector in string representation. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classVector_a5f2ce6661fe041034adb1bcfba028cf8}\label{classVector_a5f2ce6661fe041034adb1bcfba028cf8}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename N\+UM $>$ \\
+const friend \mbox{\hyperlink{classVector}{Vector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const N\+UM \&}]{left,  }\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Multiply number on vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \+: number to multiply. \\
+\hline
+{\em right} & \+: vector to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classVector}{Vector}}\} \+: vector with every element multiplied on number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_a1b0f19a654506010ec8560d628dfb39b}\label{classVector_a1b0f19a654506010ec8560d628dfb39b}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename N\+UM $>$ \\
+const friend \mbox{\hyperlink{classVector}{Vector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{left,  }\item[{const N\+UM \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Multiply vector on number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \+: vector to multiply. \\
+\hline
+{\em right} & \+: number to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classVector}{Vector}}\} \+: vector with every element multiplied on number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_ab377d44c4f0215536bee78c1075faab4}\label{classVector_ab377d44c4f0215536bee78c1075faab4}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename N\+UM $>$ \\
+const friend \mbox{\hyperlink{classVector}{Vector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{left,  }\item[{const N\+UM \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Divide vector on number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \+: vector to divide. \\
+\hline
+{\em right} & \+: number to diide. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classVector}{Vector}}\} \+: vector with every element divided on number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVector_a68768d0de81fdb8e501d03c797b284ca}\label{classVector_a68768d0de81fdb8e501d03c797b284ca}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classVector}{Vector}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Print vector to stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \+: stream to print vector. \\
+\hline
+{\em vec} & \+: vector to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{std\+::ostream\} \+: stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Vector/Vector.\+hpp\end{DoxyCompactItemize}

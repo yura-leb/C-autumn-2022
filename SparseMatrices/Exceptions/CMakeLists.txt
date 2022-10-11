@@ -15,6 +15,7 @@ set(SOURCE_LIB
 			TwoParamsException.hpp 
 			WrongInput.hpp 
 			ZeroDivision.hpp 
+			FileNotFound.hpp
 			)		# Установка переменной со списком исходников
 
 add_library(Exceptions STATIC ${SOURCE_LIB})# Создание статической библиотеки

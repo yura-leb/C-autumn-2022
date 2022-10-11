@@ -143,12 +143,12 @@ bool operator>=(const ComplexNumber<type_real, type_imag>& left, const ComplexNu
 
 template<typename type_real, typename type_imag>
 bool operator==(const ComplexNumber<type_real, type_imag>& left, const ComplexNumber<type_real, type_imag>& right) {
-    return left.get_radius_vector() == right.get_radius_vector();
+    return left.real == right.real && left.imag == right.imag;
 }
 
 template<typename type_real, typename type_imag>
 bool operator!=(const ComplexNumber<type_real, type_imag>& left, const ComplexNumber<type_real, type_imag>& right) {
-    return left.get_radius_vector() != right.get_radius_vector();
+    return left.real != right.real || left.imag != right.imag;
 }
 
 // assignment

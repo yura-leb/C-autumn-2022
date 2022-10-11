@@ -10,5 +10,9 @@ project(Matrix)				# Название проекта
 set(SOURCE_LIB Matrix.hpp)		# Установка переменной со списком исходников
 
 add_library(Matrix ${SOURCE_LIB})# Создание статической библиотеки
+# add_library(MatrixProxy ${SOURCE_LIB})# Создание статической библиотеки
+# add_library(Matrix_coords ${SOURCE_LIB})# Создание статической библиотеки
+# add_library(Matrix_row_coords ${SOURCE_LIB})# Создание статической библиотеки
+# add_library(Matrix_column_coords ${SOURCE_LIB})# Создание статической библиотеки
 
 set_target_properties(Matrix PROPERTIES LINKER_LANGUAGE CXX)

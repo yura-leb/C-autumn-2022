@@ -1,0 +1,277 @@
+\hypertarget{classMatrix}{}\doxysection{Matrix$<$ T $>$ Class Template Reference}
+\label{classMatrix}\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Matrix.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}{Matrix}} ()
+\item 
+\mbox{\hyperlink{classMatrix_a28021613ad2a9fe1edcb0cd91cc077bf}{Matrix}} (uint64\+\_\+t hight, uint64\+\_\+t width)
+\item 
+\mbox{\hyperlink{classMatrix_a05df1da08499dd241899f8fe541aae33}{Matrix}} (const int64\+\_\+t value, const uint64\+\_\+t hight, const uint64\+\_\+t width)
+\item 
+\mbox{\hyperlink{classMatrix_ac0cb4e7968d3e525eb6404ac367699b6}{Matrix}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&right)
+\item 
+\mbox{\hyperlink{classMatrix_aa153ace36f8c8e6ba7a52e27084b2b59}{Matrix}} (const std\+::unordered\+\_\+map$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$, T, \mbox{\hyperlink{structpair__hash}{pair\+\_\+hash}} $>$ \&matrix, uint64\+\_\+t hight, uint64\+\_\+t width)
+\item 
+\mbox{\hyperlink{classMatrix_a5de65d6c8d9f96a0a4124059e2bf54ea}{Matrix}} (std\+::string fname)
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a121d15e0d56a1093ef0280d1a91c1e1f}{operator+}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&right) const
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_af6d9ea57e098b5fe086f8a05443790ae}{operator-\/}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&right) const
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a499f7035d2b1074769af2e973f2da270}{operator$\ast$}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&right) const
+\item 
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix_a79298468398a3ef9b0b6408c8dce9bf8}{operator-\/}} () const
+\item 
+const \mbox{\hyperlink{classMatrix}{Matrix}} \& \mbox{\hyperlink{classMatrix_aa0f1951c68ef5407302d96c1da37c32b}{operator=}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&right)
+\item 
+std\+::string \mbox{\hyperlink{classMatrix_a71dec3e35d33291982431a4d5f070ab0}{to\+\_\+string}} () const
+\item 
+T \mbox{\hyperlink{classMatrix_ac24d60226cb66508cf7f8371ea32f144}{operator()}} (const uint64\+\_\+t i, const uint64\+\_\+t j) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classMatrix_ac5ecf592ab69a198dce6a31b07a5f574}{operator$<$$<$}} (std\+::ostream \&str, const \mbox{\hyperlink{classMatrix}{Matrix}} \&matrix)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Matrix$<$ T $>$}
+
+Class of Sparse Matrices. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}\label{classMatrix_a9d567e3a121b1be0c3f9c461cab524fe}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor, initialises hight and widht with 0. \mbox{\Hypertarget{classMatrix_a28021613ad2a9fe1edcb0cd91cc077bf}\label{classMatrix_a28021613ad2a9fe1edcb0cd91cc077bf}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{hight,  }\item[{uint64\+\_\+t}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from size. Creates zero matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hight} & \+: number of lines. \\
+\hline
+{\em width} & \+: number of columns. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMatrix_a05df1da08499dd241899f8fe541aae33}\label{classMatrix_a05df1da08499dd241899f8fe541aae33}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}\item[{const int64\+\_\+t}]{value,  }\item[{const uint64\+\_\+t}]{hight,  }\item[{const uint64\+\_\+t}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create matrix with values as numbers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \+: value to initialize each cell. \\
+\hline
+{\em hight} & \+: number of lines. \\
+\hline
+{\em width} & \+: number of columns. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMatrix_ac0cb4e7968d3e525eb6404ac367699b6}\label{classMatrix_ac0cb4e7968d3e525eb6404ac367699b6}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: matrix to construct from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMatrix_aa153ace36f8c8e6ba7a52e27084b2b59}\label{classMatrix_aa153ace36f8c8e6ba7a52e27084b2b59}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}\item[{const std\+::unordered\+\_\+map$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$, T, \mbox{\hyperlink{structpair__hash}{pair\+\_\+hash}} $>$ \&}]{matrix,  }\item[{uint64\+\_\+t}]{hight,  }\item[{uint64\+\_\+t}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from unordered map.
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & \+: matrix in unordered map representation. \\
+\hline
+{\em hight} & \+: number of lines. \\
+\hline
+{\em width} & \+: number of columns. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMatrix_a5de65d6c8d9f96a0a4124059e2bf54ea}\label{classMatrix_a5de65d6c8d9f96a0a4124059e2bf54ea}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::\mbox{\hyperlink{classMatrix}{Matrix}} (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor from filename. Template must be previously defined with \mbox{\hyperlink{classParser_ac4f998219186914510e9119a0663c6d6}{Parser.\+analyze\+\_\+file(std\+::string fname)}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & \+: filename to construct from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMatrix_ac24d60226cb66508cf7f8371ea32f144}\label{classMatrix_ac24d60226cb66508cf7f8371ea32f144}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t}]{i,  }\item[{const uint64\+\_\+t}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get element to read.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \+: line coordinate. \\
+\hline
+{\em j} & \+: column coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{T\} \+: element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a499f7035d2b1074769af2e973f2da270}\label{classMatrix_a499f7035d2b1074769af2e973f2da270}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiply matrices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: other matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classMatrix}{Matrix}}\} \+: product of matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a121d15e0d56a1093ef0280d1a91c1e1f}\label{classMatrix_a121d15e0d56a1093ef0280d1a91c1e1f}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add other matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: other matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classMatrix}{Matrix}}\} \+: value of sum. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a79298468398a3ef9b0b6408c8dce9bf8}\label{classMatrix_a79298468398a3ef9b0b6408c8dce9bf8}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary minus.
+
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classMatrix}{Matrix}}\} \+: this matrix with changed sign. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_af6d9ea57e098b5fe086f8a05443790ae}\label{classMatrix_af6d9ea57e098b5fe086f8a05443790ae}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classMatrix}{Matrix}} \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Substract other matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: other matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\mbox{\hyperlink{classMatrix}{Matrix}}\} \+: sub of matrices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_aa0f1951c68ef5407302d96c1da37c32b}\label{classMatrix_aa0f1951c68ef5407302d96c1da37c32b}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{classMatrix}{Matrix}}\& \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy operator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & \+: matrix to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{const \mbox{\hyperlink{classMatrix}{Matrix}}\&\} \+: this matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMatrix_a71dec3e35d33291982431a4d5f070ab0}\label{classMatrix_a71dec3e35d33291982431a4d5f070ab0}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Convert to string.
+
+\begin{DoxyReturn}{Returns}
+\{std\+::string\} \+: matrix value converted to string. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classMatrix_ac5ecf592ab69a198dce6a31b07a5f574}\label{classMatrix_ac5ecf592ab69a198dce6a31b07a5f574}} 
+\index{Matrix$<$ T $>$@{Matrix$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix$<$ T $>$@{Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{str,  }\item[{const \mbox{\hyperlink{classMatrix}{Matrix}}$<$ T $>$ \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Print to std\+::ostream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \+: stream to print matrix. \\
+\hline
+{\em matrix} & \+: matrix to print. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{std\+::ostream\} \+: stream with printed matrix. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Matrix/Matrix.\+hpp\end{DoxyCompactItemize}

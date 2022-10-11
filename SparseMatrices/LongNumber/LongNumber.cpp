@@ -1,5 +1,8 @@
 #include "LongNumber.hpp"
 #include <iostream>
+#include <climits>
+#include <string>
+#include "BadCast.hpp"
 
 LongNumber::LongNumber() {
     number = "";
@@ -34,7 +37,7 @@ std::string LongNumber::to_string() const {
     }
 }
 
-std::ostream & operator<<(std::ostream & str, LongNumber const & long_number) {
+std::ostream & operator<<(std::ostream & str, LongNumber long_number) {
   str << long_number.to_string();
   return str;
 }
@@ -252,35 +255,36 @@ LongNumber operator%(const LongNumber& left, const LongNumber& right) {
 }
 
 void LongNumber::remove_leading_zeros() {
-    while (*this && number[number.size() - 1] == '0') {
+    // std::cout << number.size() << std::endl;
+    while (number.size() > 1 && number[number.size() - 1] == '0') {
         number.pop_back();
     }
     if (number.size() == 1 && number[0] == '0') 
         is_negative = false;
 }
 
-LongNumber& LongNumber::operator=(const LongNumber& right) {
+LongNumber LongNumber::operator=(const LongNumber& right) {
     number = right.number;
     is_negative = right.is_negative;
     return *this;
 }
 
-LongNumber& operator+=(LongNumber& left, const LongNumber& right) {
+LongNumber operator+=(LongNumber& left, const LongNumber& right) {
     left = left + right;
     return left;
 }
 
-LongNumber& operator-=(LongNumber& left, const LongNumber& right) {
+LongNumber operator-=(LongNumber& left, const LongNumber& right) {
     left = left - right;
     return left;
 }
 
-LongNumber& operator*=(LongNumber& left, const LongNumber& right) {
+LongNumber operator*=(LongNumber& left, const LongNumber& right) {
     left = left * right;
     return left;
 }
 
-LongNumber& operator/=(LongNumber& left, const LongNumber& right) {
+LongNumber operator/=(LongNumber& left, const LongNumber& right) {
     left = left / right;
     return left;
 }
@@ -290,8 +294,33 @@ const LongNumber abs(const LongNumber& long_number) {
 }
 
 
-LongNumber::operator bool () const{ 
+LongNumber::operator bool () const { 
     return number.size() != 1 || number[0] != '0';
+}
+
+LongNumber::operator long () const { 
+    if (LONG_MIN <= number && number <= LONG_MAX) {
+        return std::stold((is_negative ? "-" : "") + number);
+    } else {
+        throw BadCast("Cannot cast to long");
+        return 0;
+    }
+}
+LongNumber::operator int () const { 
+    if (INT_MIN <= number && number <= INT_MAX) {
+        return std::stoi((is_negative ? "-" : "") + number);
+    } else {
+        throw BadCast("Cannot cast to int");
+        return 0;
+    }
+}
+LongNumber::operator short () const { 
+    if (SHRT_MIN <= number && number <= SHRT_MAX) {
+        return std::stoi((is_negative ? "-" : "") + number);
+    } else {
+        throw BadCast("Cannot cast to short");
+        return 0;
+    }
 }
 
 bool LongNumber::_is_negative() const {

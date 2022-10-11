@@ -6,59 +6,60 @@
 #include <filesystem>
 namespace fs = std::filesystem;
 
+
 const int Parser::analyze_file(std::string fname) {
     std::string line, word;
     int res = 0;
     bool comment;
     
-    // std::fstream my_file (fname);
-    // std::string path = ".";
-    // for (const auto & entry : fs::directory_iterator(path))
-    //     std::cout << entry.path() << std::endl;
-    // my_file.close();
-	// return 0;
+    std::fstream my_file (fname);
+    std::string path = ".";
+    for (const auto & entry : fs::directory_iterator(path))
+        std::cout << entry.path() << std::endl;
+    my_file.close();
+	return 0;
 
-    std::ifstream input (fname);
-    if (input.is_open())
-    {
-        while ( getline (input,line) )
-        {
-            std::istringstream iss(line);
-            do {
-                iss >> word;
-                if (word[0] == '#') {
-                    comment = true;
-                    break;
-                } else if (word == "vector") {
-                    res = 10;
-                }
-                else if (word == "matrix") {
-                    res = 20;
-                }
-                else if (word == "bool") {
-                    res += 1;
-                }
-                else if (word == "rational") {
-                    res += 2;
-                }
-                else if (word == "complex") {
-                    res += 3;
-                }
-                else {
-                    break;
-                }
-            } while (iss);
+    // std::ifstream input (fname);
+    // if (input.is_open())
+    // {
+    //     while ( getline (input,line) )
+    //     {
+    //         std::istringstream iss(line);
+    //         do {
+    //             iss >> word;
+    //             if (word[0] == '#') {
+    //                 comment = true;
+    //                 break;
+    //             } else if (word == "vector") {
+    //                 res = 10;
+    //             }
+    //             else if (word == "matrix") {
+    //                 res = 20;
+    //             }
+    //             else if (word == "bool") {
+    //                 res += 1;
+    //             }
+    //             else if (word == "rational") {
+    //                 res += 2;
+    //             }
+    //             else if (word == "complex") {
+    //                 res += 3;
+    //             }
+    //             else {
+    //                 break;
+    //             }
+    //         } while (iss);
 
-            if (comment) {
-                comment = false;
-                continue;
-            } else {
-                break;
-            }
-        }
-        input.close();
-    }
-    return res;
+    //         if (comment) {
+    //             comment = false;
+    //             continue;
+    //         } else {
+    //             break;
+    //         }
+    //     }
+    //     input.close();
+    // }
+    // return res;
 
  
 	// my_file.close();
